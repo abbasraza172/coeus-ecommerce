@@ -43,13 +43,13 @@ test:
 # URL environment variable explicitly:
 #
 #   production:
-#     url: <%= ENV['MY_APP_DATABASE_URL'] %>
 #
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
 production:
   <<: *default
+  url: <%= ENV['MY_APP_DATABASE_URL'] %>
   database: coeus_ecommerce_production
-  username: coeus_ecommerce
+  username: <%= ENV['COEUS_ECOMMERCE_DATABASE_USERNAME'] %>
   password: <%= ENV['COEUS_ECOMMERCE_DATABASE_PASSWORD'] %>
