@@ -8,11 +8,12 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
-require("customer/landing-page/bootstrp.js")
-require("customer/landing-page/jquery.js")
-require("customer/landing-page/jquery.easing-1.3.min.js")
-require("customer/landing-page/jquery.scrollTo-1.4.3.1-min.js")
-require("customer/landing-page/shop.js")
+require("customer/landing-page/jquery")
+require("customer/landing-page/bootstrap")
+window.bootstrap_min = require("customer/landing-page/bootstrap.min")
+require("customer/landing-page/jquery.easing-1.3.min")
+require("customer/landing-page/jquery.scrollTo-1.4.3.1-min")
+require("customer/landing-page/shop")
 
 Rails.start()
 Turbolinks.start()
