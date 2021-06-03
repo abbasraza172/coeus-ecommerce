@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CoeusEcommerce</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'seller-theme', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'seller', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <%= render "shared/top-nav"%>
+      <!-- /. NAV TOP  -->
+      <%= render "shared/side-menu"%>
+      <!-- /. NAV SIDE  -->
+      <%= yield %>
+      <!-- /. PAGE WRAPPER  -->
+    </div>
+    <!-- /. WRAPPER  -->
+
+    <div id="footer-sec">
+      &copy; 2014 YourCompany | Design By : <a href="http://www.binarytheme.com/" target="_blank">BinaryTheme.com</a>
+    </div>
+  </body>
+</html>
