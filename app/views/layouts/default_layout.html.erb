@@ -9,58 +9,30 @@
     <%= stylesheet_link_tag 'default_layout', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'default_layout', 'data-turbolinks-track': 'reload' %>
     <!-- Favicons -->
-    <%= favicon_link_tag asset_path('favicon.ico') %>
+    <%= favicon_link_tag asset_path('landing-page/favicon.ico') %>
   </head>
   <body>
-    <!--Upper Header Section -->
     <!-- rendering upper header -->
     <%= render "shared/default/upperHeader" %>
-    <!--Lower Header Section -->
     <div class="container">
       <div id="gototop"> </div>
       <header id="header">
         <!-- rendering lower header -->
         <%= render "shared/default/lowerHeader" %>
       </header>
-      <!--Navigation Bar Section-->
       <!-- rendering navbar -->
       <%= render "shared/default/navbar" %>
       <!-- Body Section -->
-      <div class="row">
-        <div id="sidebar" class="span3">
-          <!-- rendering sidebar -->
-          <%= render "shared/default/sidebar" %>
-        </div>
-        <div class="span9">
-          <!-- rendering carousel -->
-          <%= render "shared/default/carousel" %>
-          <!--New Products-->
-          <!-- rendering new products -->
-          <%= render "shared/default/newProducts" %>
-          <!--Featured Products-->
-          <!-- rendering new products -->
-          <%= render "shared/default/featuredProducts" %>
-          <!--Popular Products-->
-          <!-- rendering popular products -->
-          <%= render "shared/default/popularProducts" %>
-          <!--Best Selling Products-->
-          <!-- rendering Best Selling Products -->
-          <%= render "shared/default/bestSellingProducts" %>
-        </div>
-        <!-- Clients -->
-        <!-- rendering Sellers -->
-        <%= render "shared/default/sellers" %>
-        <!--Footer-->
-        <!-- rendering footer -->
-        <%= render "shared/default/footer" %>
+      <%= yield %>
+      <%= render "shared/default/footer" %>
+    </div>
+    <!-- /container -->
+    <div class="copyright">
+      <div class="container">
+        <span>Copyright &copy; 2021<br>
+          Coeus Express GmbH</span>
       </div>
-      <!-- /container -->
-      <div class="copyright">
-        <div class="container">
-          <span>Copyright &copy; 2021<br>
-            Coeus Express GmbH</span>
-        </div>
-      </div>
-      <a href="#" class="gotop"><i class="fa fa-angle-double-up"></i></a>
-    </body>
-  </html>
+    </div>
+    <a href="#" class="gotop"><i class="fa fa-angle-double-up"></i></a>
+  </body>
+</html>
