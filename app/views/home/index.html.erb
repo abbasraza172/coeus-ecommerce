@@ -1,0 +1,13 @@
+<%# Dummy Products Data %>
+<div class="row">
+  <%= render "shared/default/sidebar" %>
+  <div class="span9">
+    <!-- Carousel -->
+    <%= render "shared/default/carousel" %>
+    <!-- Products Cards -->
+    <%= render partial: "shared/default/productsCards", locals: {header: "New Products"} %>
+    <%= render partial: "shared/default/productsCards", locals: {header: "Popular Products"} %>
+  </div>
+  <!-- Sellers -->
+  <%= render "shared/default/sellers" %>
+</div>
