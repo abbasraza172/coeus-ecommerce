@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Coeus Express</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <%= stylesheet_link_tag 'default_layout', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'default_layout', 'data-turbolinks-track': 'reload' %>
+    <!-- Favicons -->
+    <%= favicon_link_tag asset_path('landing-page/favicon.ico') %>
+  </head>
+  <body>
+    <!-- rendering upper header -->
+    <%= render "shared/default/upperHeader" %>
+    <div class="container">
+      <div id="gototop"> </div>
+      <header id="header">
+        <!-- rendering lower header -->
+        <%= render "shared/default/lowerHeader" %>
+      </header>
+      <!-- rendering navbar -->
+      <%= render "shared/default/navbar" %>
+      <!-- Body Section -->
+      <%= yield %>
+      <!-- rendering footer -->
+      <%= render "shared/default/footer" %>
+    </div>
+    <!-- /container -->
+    <div class="copyright">
+      <div class="container">
+        <span>Copyright &copy; 2021<br>
+          Coeus Express GmbH</span>
+      </div>
+    </div>
+    <a href="#" class="gotop"><i class="fa fa-angle-double-up"></i></a>
+  </body>
+</html>
