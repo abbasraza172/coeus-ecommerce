@@ -1,57 +1,26 @@
-  
 <div class="well well-small">
   <h3><%=header%></h3>
   <hr class="soften"/>
   <div class="row-fluid">
-    <ul class="thumbnails">
-      <li class="span4">
-        <div class="thumbnail">
-          <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-          <a href="product_details.html"><%= image_tag "products/b.jpg", alt:"coeus ecommerce"%></a>
-          <div class="caption cntr">
-            <p>Manicure & Pedicure</p>
-            <p><strong> $22.00</strong></p>
-            <h4><a class="shopBtn" href="#" title="add to cart"> Add to cart </a></h4>
-            <div class="actionList">
-              <a class="pull-left" href="#">Add to Wish List </a>
-              <a class="pull-left" href="#"> Add to Compare </a>
+    <% products.each_with_index do |product, index| %>
+      <% if index%3 == 0 %>
+        <ul class="thumbnails">
+        <%end%>
+        <li class="span4">
+          <div class="thumbnail">
+            <a class="zoomTool" href="product_details.html" title="add to cart"><span class="fa fa-search"></span> QUICK VIEW</a>
+            <a  href="product_details.html"> <%= image_tag "products/a.jpg", alt:""%></a>
+            <div class="caption">
+              <h5><%= product.name%></h5>
+              <h4>
+                <a class="defaultBtn" href="product_details.html" title="Click to view"><span class="fa fa-search-plus"></span></a>
+                <a class="shopBtn" href="#" title="add to cart"><span class="fa fa-plus"></span></a>
+                <span class="pull-right">$ <%=product.current_price%></span>
+              </h4>
             </div>
-            <br class="clr">
           </div>
-        </div>
-      </li>
-      <li class="span4">
-        <div class="thumbnail">
-          <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-          <a href="product_details.html"><%= image_tag "products/c.jpg", alt:"coeus ecommerce"%></a>
-          <div class="caption cntr">
-            <p>Manicure & Pedicure</p>
-            <p><strong> $23.00</strong></p>
-            <h4><a class="shopBtn" href="#" title="add to cart"> Add to cart </a></h4>
-            <div class="actionList">
-              <a class="pull-left" href="#">Add to Wish List </a>
-              <a class="pull-left" href="#"> Add to Compare </a>
-            </div>
-            <br class="clr">
-          </div>
-        </div>
-      </li>
-      <li class="span4">
-        <div class="thumbnail">
-          <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-          <a href="product_details.html"><%= image_tag "products/a.jpg", alt:"coeus ecommerce"%></a>
-          <div class="caption cntr">
-            <p>Manicure & Pedicure</p>
-            <p><strong> $22.00</strong></p>
-            <h4><a class="shopBtn" href="#" title="add to cart"> Add to cart </a></h4>
-            <div class="actionList">
-              <a class="pull-left" href="#">Add to Wish List </a>
-              <a class="pull-left" href="#"> Add to Compare </a>
-            </div>
-            <br class="clr">
-          </div>
-        </div>
-      </li>
+        </li>
+      <%end%>
     </ul>
   </div>
 </div>
