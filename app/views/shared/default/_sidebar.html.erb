@@ -4,8 +4,9 @@
       <li>
         <h4 style="text-align:center;"><%=header%></h4>
       </li>
+      <li><a href="<%= products_gird_view_path%>"><span class="fa fa-chevron-right"></span>All</a></li>
       <% data.each do |item|%>
-        <li><a href="products.html"><span class="fa fa-chevron-right"></span><%=item.name%></a></li>
+        <li><a href="<%= products_path(category_id: item.id)%>"><span class="fa fa-chevron-right"></span><%=item.name%></a></li>
       <%end%>
       <li style="border:0"> &nbsp;</li>
       <%# <li> <a class="totalInCart" href="cart.html"><strong>Total Amount  <span class="badge badge-warning pull-right" style="line-height:18px;">$448.42</span></strong></a></li> %>

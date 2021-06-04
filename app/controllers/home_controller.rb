@@ -8,9 +8,6 @@ class HomeController < ApplicationController
     @featured_products = Product.all
   end
 
-  def index
-  end
-
   def main
     if @sub_domain == "buyer"
       redirect_to index_path
