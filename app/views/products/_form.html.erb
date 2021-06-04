@@ -1,0 +1,35 @@
+<%= form_for product do |form| %>
+    <div class="field form-group">
+        <%= form.label :name %>
+        <%= form.text_field :name , class: 'form-control'%>
+    </div>
+    <div class="field form-group">
+        <%= form.label :description %>
+        <%= form.text_field :description , class: 'form-control'%>
+    </div>
+    <div class="field form-group">
+        <%= form.label :quantity %>
+        <%= form.text_field :quantity , class: 'form-control'%>
+    </div>
+    <div class="field form-group">
+        <%= form.label :current_price %>
+        <%= form.text_field :current_price , class: 'form-control'%>
+    </div>
+    <div class="field form-group">
+        <%= form.label :category %>
+        <div style ="width: inherit !important">
+            <%= form.select(:category_ids, Category.all.collect {|p| [ p.name, p.id ] }, 
+                                           { :prompt => "Please select"}, 
+                                           { :multiple => true, :size => 5 }) %>
+        </div>
+    </div>
+    <%= form.label :status%><br>
+    <%= form.radio_button :status, "True" %>
+    <%= form.label :status_true, "True" %>
+    <%= form.radio_button :status, "False" %>
+    <%= form.label :status_false, "False" %>
+
+  <div class="actions">
+    <%= form.submit  class: 'btn btn-warning mb-5' %>
+  </div>
+<% end %>

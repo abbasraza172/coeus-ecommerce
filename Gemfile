@@ -26,6 +26,9 @@ gem 'jquery-rails'
 #gem font-awesome
 gem "font-awesome-rails"
 
+#devise
+gem 'devise'
+
 
 gem "font-awesome-rails"
 gem 'jquery-rails'

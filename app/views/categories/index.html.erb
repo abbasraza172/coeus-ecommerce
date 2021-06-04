@@ -1,0 +1,20 @@
+<div class="card" style="width: 50%;margin: auto;">
+    <div class="card-header">
+      <h1>Categories</h1>
+    </div>
+    <ul class="list-group list-group-flush">
+         <% @categories.each do |category| %>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-6">
+                        <strong><%= category.name%><strong>
+                    </div>
+                    <div class="col-6">
+                        <%= link_to 'Delete category', category_path(category), method: "delete", data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+                        <%= link_to 'Edit Category', edit_category_path(category) , class: 'btn btn-sm btn-info' %>
+                    </div>
+                </div>
+            </li>    
+        <% end %>       
+    </ul>
+</div>

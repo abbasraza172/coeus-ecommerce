@@ -15,16 +15,16 @@
 
 
             <li>
-                <a class="active-menu"><i class="fa fa-dashboard "></i>Dashboard</a>
+                <%= link_to 'Dashboard', seller_path , class: 'fa fa-dashboard active-menu'%>
             </li>
             <li>
                 <a href="#"><i class="fa fa-desktop "></i>Product Categories<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                     <li>
-                        <a ><i class="fa fa-toggle-on"></i>Add New Cateogory</a>
+                        <%= link_to 'New Category', new_category_path , class: 'fa fa-toggle-on'%>
                     </li>
                     <li>
-                        <a ><i class="fa fa-bell "></i>Existing Categories</a>
+                        <%= link_to 'Existing Categories', categories_path , class: 'fa fa-bell'%>
                     </li>
                 </ul>
             </li>
@@ -32,13 +32,10 @@
                 <a href="#"><i class="fa fa-yelp "></i>Products <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                     <li>
-                        <a ><i class="fa fa-coffee"></i>New Product</a>
+                        <%= link_to 'New Product', new_product_path , class: 'fa fa-coffee'%>
                     </li>
                     <li>
-                        <a ><i class="fa fa-flash "></i>All Products</a>
-                    </li>
-                    <li>
-                        <a ><i class="fa fa-key "></i>Update Product</a>
+                        <%= link_to 'All Products', products_path , class: 'fa fa-flash'%>
                     </li>
                     
                 </ul>
