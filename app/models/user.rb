@@ -10,8 +10,6 @@ class User < ApplicationRecord
   validates :role, presence: true
   validates :name, presence: true
   validates :email, presence: true
-  validates :current_price, numericality: true
-  validates :quantity, numericality: true
 
   #enum for roles
   enum role: { admin: 0, seller: 1, customer: 2 }

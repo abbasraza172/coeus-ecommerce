@@ -11,7 +11,6 @@ class Product < ApplicationRecord
 
   #validation
   validates :name, presence: true
-  validates :email, uniqueness: true
   validates :current_price, numericality: true
   validates :quantity, numericality: true
 end
