@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :set_product, only: [ :edit, :update, :destroy]
+  before_action :set_category, only: [ :edit, :update, :destroy]
   layout 'seller-layout', only: [:index, :create, :new, :edit]
   
   def index

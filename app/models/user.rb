@@ -10,7 +10,7 @@ class User < ApplicationRecord
    has_many :products
 
   #belongs to association
-  belongs_to :business
+  belongs_to :business, optional: true
 
   #validation
   validates :role, presence: true

@@ -1,25 +1,27 @@
-<div id="page-inner">
-    <!-- /. Seller stats  -->
-    <%= render "shared/stat"%>
-    <!-- /. ROW  -->
-    <div class="row">
-    <div class="col-md-8">
+<% if user_signed_in? %>
+    <div id="page-inner">
+        <!-- /. Seller stats  -->
+        <%= render "shared/stat"%>
+        <!-- /. ROW  -->
         <div class="row">
-        <div class="col-md-12">
-            <%= render "shared/review-crr"%> 
+        <div class="col-md-8">
+            <div class="row">
+            <div class="col-md-12">
+                <%= render "shared/review-crr"%> 
+            </div>
+            </div>
+            <!-- /Top selling items  -->
+            <hr />
+            <%= render "shared/selling-prd"%> 
         </div>
+        <!-- /.Notifications bar -->
+        <%= render "shared/notification-bar" %>
         </div>
-        <!-- /Top selling items  -->
+        <!-- /. Order Table -->
         <hr />
-        <%= render "shared/selling-prd"%> 
+        <div class="row">
+        <%= render "shared/order-tb" %>
+        </div>
+        <hr />
     </div>
-    <!-- /.Notifications bar -->
-    <%= render "shared/notification-bar" %>
-    </div>
-    <!-- /. Order Table -->
-    <hr />
-    <div class="row">
-    <%= render "shared/order-tb" %>
-    </div>
-    <hr />
-</div>
+<%end%>

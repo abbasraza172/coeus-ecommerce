@@ -5,9 +5,9 @@
                 <div class="user-img-div">
 
                     <div class="inner-text">
-                        Jhon Deo Alex
+                      <p><%=@sub_domain %> Name:    <%= current_user.name %></p>
                     <br />
-                        <small>Last Login : 2 Weeks Ago </small>
+                        <small>User First login:   <%= distance_of_time_in_words(current_user.created_at, Time.now, include_seconds: true) %>  ago</small>
                     </div>
                 </div>
 
@@ -52,43 +52,6 @@
                     </li>
                 </ul>
             </li>
-                <%# <li>
-                <a href="gallery.html"><i class="fa fa-anchor "></i>Gallery</a>
-            </li>
-                <li>
-                <a href="error.html"><i class="fa fa-bug "></i>Error Page</a>
-            </li>
-            <li>
-                <a href="login.html"><i class="fa fa-sign-in "></i>Login Page</a>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-sitemap "></i>Multilevel Link <span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                    <li>
-                        <a href="#"><i class="fa fa-bicycle "></i>Second Level Link</a>
-                    </li>
-                        <li>
-                        <a href="#"><i class="fa fa-flask "></i>Second Level Link</a>
-                    </li>
-                    <li>
-                        <a href="#">Second Level Link<span class="fa arrow"></span></a>
-                        <ul class="nav nav-third-level">
-                            <li>
-                                <a href="#"><i class="fa fa-plus "></i>Third Level Link</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-comments-o "></i>Third Level Link</a>
-                            </li>
-
-                        </ul>
-
-                    </li>
-                </ul>
-            </li>
-            
-            <li>
-                <a href="blank.html"><i class="fa fa-square-o "></i>Blank Page</a>
-            </li> %>
         </ul>
 
     </div>
