@@ -8,9 +8,9 @@
       </a>
       <div class="nav-collapse">
         <ul class="nav">
-          <li class="active"><a href="index.html">Home	</a></li>
-          <li class=""><a href="list-view.html">List View</a></li>
-          <li class=""><a href="grid-view.html">Grid View</a></li>
+          <li class="<%= "active" if current_page?(index_path) %>"><a href="<%=index_path%>">Home	</a></li>
+          <li class="<%= "active" if current_page?(products_list_view_path) %>"><a href="<%=products_list_view_path%>">List View</a></li>
+          <li class="<%= "active" if current_page?(products_gird_view_path) %>"><a href="<%=products_gird_view_path%>">Grid View</a></li>
         </ul>
         <form action="#" class="navbar-search pull-left">
           <input type="text" placeholder="Search" class="search-query span2">

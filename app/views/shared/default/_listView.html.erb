@@ -1,0 +1,26 @@
+<div class="span9">
+  <div class="well well-small">
+    <% products.each_with_index do |product,index| %>
+      <div class="row-fluid">
+        <div class="span2">
+          <%= image_tag "products/"+(index%6).to_s+".jpg", alt:""%>
+        </div>
+        <div class="span6">
+          <h5><%=product.name%></h5>
+          <p>
+            <%=product.description%>
+          </p>
+        </div>
+        <div class="span4 alignR">
+          <h3> $<%=product.current_price%></h3>
+          <br>
+          <div class="btn-group">
+            <a href="product_details.html" class="defaultBtn"><span class="fa fa-shopping-cart"></span> Add to cart</a>
+            <a href="<%= product_path(product)%>" class="shopBtn">VIEW</a>
+          </div>
+        </div>
+      </div>
+      <hr class="soften">
+    <%end%>
+  </div>
+</div>

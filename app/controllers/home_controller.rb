@@ -2,6 +2,10 @@ class HomeController < ApplicationController
   layout "default_layout"
 
   def index
+    @categories = Category.where(status: true).order(name: "ASC")
+    @new_products = Product.order(created_at: "DESC").limit(6)
+    @popular_products = Product.all
+    @featured_products = Product.all
   end
 
   def main
