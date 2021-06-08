@@ -4,25 +4,26 @@
   <div class="row-fluid">
     <% if products.empty? %>
       <div style="text-align:center;">No Product Found</div>
-    <%end%>
-    <% products.each_with_index do |product, index| %>
-      <% if index%3 == 0 %>
-        <ul class="thumbnails">
-        <%end%>
-        <li class="span4">
-          <div class="thumbnail">
-            <a class="zoomTool" href="<%= product_path(product)%>" title="View Product"><span class="fa fa-search"></span> QUICK VIEW</a>
-            <a  href="<%= product_path(product)%>"> <%= image_tag "products/"+(index%6).to_s+".jpg", alt:""%></a>
-            <div class="caption">
-              <h5><%= product.name%></h5>
-              <h4>
-                <a class="defaultBtn" href="<%= product_path(product)%>" title="Click to view"><span class="fa fa-search-plus"></span></a>
-                <a class="shopBtn" href="#" title="Add To Cart"><span class="fa fa-shopping-cart"></span></a>
-                <span class="pull-right">$ <%=product.current_price%></span>
-              </h4>
+    <%else%>
+      <% products.each_with_index do |product, index| %>
+        <% if index%3 == 0 %>
+          <ul class="thumbnails">
+          <%end%>
+          <li class="span4">
+            <div class="thumbnail">
+              <a class="zoomTool" href="<%= product_path(product)%>" title="add to cart"><span class="fa fa-search"></span> QUICK VIEW</a>
+              <a  href="<%= product_path(product)%>"> <%= image_tag "products/"+(index%6).to_s+".jpg", alt:""%></a>
+              <div class="caption">
+                <h5><%= product.name%></h5>
+                <h4>
+                  <a class="defaultBtn" href="<%= product_path(product)%>" title="Click to view"><span class="fa fa-search-plus"></span></a>
+                  <a class="shopBtn" onclick = "window.addToCart(<%= product.id%>,'<%= product.name%>', 1,<%= product.current_price%>, '<%= image_path('products/2.jpg')%>')" title="add to cart"><span class="fa fa-shopping-cart"></span></a>
+                  <span class="pull-right">$ <%=product.current_price%></span>
+                </h4>
+              </div>
             </div>
-          </div>
-        </li>
+          </li>
+        <%end%>
       <%end%>
     </ul>
   </div>
