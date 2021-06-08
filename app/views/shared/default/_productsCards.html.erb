@@ -17,7 +17,7 @@
                 <h5><%= product.name%></h5>
                 <h4>
                   <a class="defaultBtn" href="<%= product_path(product)%>" title="Click to view"><span class="fa fa-search-plus"></span></a>
-                  <a class="shopBtn" onclick = "window.addToCart(<%= product.id%>,'<%= product.name%>', 1,<%= product.current_price%>, '<%= image_path('products/2.jpg')%>')" title="add to cart"><span class="fa fa-shopping-cart"></span></a>
+                  <a class="shopBtn" href="#" title="add to cart"><span class="fa fa-shopping-cart"></span></a>
                   <span class="pull-right">$ <%=product.current_price%></span>
                 </h4>
               </div>
