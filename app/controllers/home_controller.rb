@@ -16,6 +16,9 @@ class HomeController < ApplicationController
     end
   end
 
+  def cart
+  end
+
   def next
   end
 end

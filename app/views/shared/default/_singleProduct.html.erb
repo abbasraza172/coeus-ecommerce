@@ -1,9 +1,4 @@
 <div class="span9">
-  <ul class="breadcrumb">
-    <li><a href="index.html">Home</a> <span class="divider">/</span></li>
-    <li><a href="products.html">Items</a> <span class="divider">/</span></li>
-    <li class="active">Preview</li>
-  </ul>
   <div class="well well-small">
     <div class="row-fluid">
       <div class="span5">
@@ -42,7 +37,7 @@
           <br>
           <h4><%=product.quantity%> items in stock</h4>
           <br>
-          <button type="submit" class="shopBtn"><span class=" fa fa-shopping-cart"></span> Add
+          <button type="submit" class="shopBtn" onclick = "window.addToCart(<%= product.id%>,'<%= product.name%>', 1,<%= product.current_price%>, '')"><span class=" fa fa-shopping-cart"></span> Add
             to cart</button>
         </form>
       </div>
@@ -74,9 +69,9 @@
             <form class="form-horizontal qtyFrm">
               <h3> $140.00</h3>
               <div class="btn-group">
-                <a href="product_details.html" class="defaultBtn"><span
+                <a href="#" class="defaultBtn"><span
 													class=" fa fa-shopping-cart"></span> Add to cart</a>
-                <a href="product_details.html" class="shopBtn">VIEW</a>
+                <a href="#" class="shopBtn">VIEW</a>
               </div>
             </form>
           </div>
