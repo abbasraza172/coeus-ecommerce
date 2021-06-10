@@ -6,16 +6,16 @@ class Ability
   def initialize(user)
     # Define abilities for the passed in user here. For example:
     #
-    if user.seller?  # additional permissions for logged in users (they can read their own posts)
+    if user.seller? 
       can :manage, Product , business_id: user.business_id
       can :update, Order , user_id: user.id
     end
 
-    if user.admin?  # additional permissions for logged in users (they can read their own posts)
+    if user.admin?  
       can :manage, :all
     end
 
-    if user.customer?  # additional permissions for logged in users (they can read their own posts)
+    if user.customer? 
       can :create, Order , user_id: user.id
     end
 
