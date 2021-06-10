@@ -17,6 +17,16 @@ class ProductsController < ApplicationController
     if @product.nil? || @product.status == false
       flash.now[:alert] = "Product was not found"
       redirect_to index_path
+    else
+      @feedbacks = @product.feedbacks
+      categories = @product.categories
+      @related_products = []
+      categories.each do |category|
+        category.products.where.not(id: @product.id).each do |product|
+          @related_products.push(product)
+        end
+      end
+      @related_products.shuffle!()
     end
   end
 

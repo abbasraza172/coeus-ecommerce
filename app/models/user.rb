@@ -1,14 +1,14 @@
 class User < ApplicationRecord
-  before_create :create_business,  if: Proc.new { seller? }
+  before_create :create_business, if: Proc.new { seller? }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-   #has many associations 
-   has_many :pictures, as: :imageable
-   has_many :feedbacks, as: :reviewable
-   has_many :orders
-   has_many :products
+  #has many associations
+  has_many :pictures, as: :imageable
+  has_many :orders
+  has_many :products
+  has_many :feedbacks
 
   #belongs to association
   belongs_to :business, optional: true
@@ -44,5 +44,4 @@ class User < ApplicationRecord
     business_description = Business.create(name: self.business_description)
     self.business_description = business_description.description
   end
-
 end
