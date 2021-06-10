@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
     def configure_permitted_parameters
         # devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :email, :password, :password_confirmation) }
-        devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :role, :email, :password, :password_confirmation])
+        devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :role, :email, :password, :business_name, :business_description,:password_confirmation])
     end
 
    # Returns the first subdomain of the request

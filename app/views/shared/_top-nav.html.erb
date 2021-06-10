@@ -12,12 +12,11 @@
     <div class="header-right">
         <% if user_signed_in? %>
             <%= link_to 'Edit Profile', edit_user_registration_path, class:'btn btn-primary' %>
-            <%= link_to 'Sign out', destroy_user_session_path, method: "delete", class: 'nav-link' , class:'btn btn-warning' %>
+            <%= link_to 'Sign out', destroy_user_session_path, method: 'delete', class: 'nav-link' , class:'btn btn-warning' %>
         <% else %>
             <%= link_to 'Register', new_user_registration_path, class: 'nav-link', class:'btn btn-primary mr-4' %>
             <%= link_to 'Sign in', new_user_session_path, class: 'nav-link' ,class:'btn btn-warning' %>
         <% end %>
-        <%# <%= button_to('Sign Out', destroy_user_session_path,:method => :delete, class:"btn btn-warning") %>
         <a href="message-task.html" class="btn btn-info" title="New Message"><b>30 </b><i class="fa fa-envelope-o fa-2x"></i></a>
         <a href="message-task.html" class="btn btn-primary" title="New Task"><b>40 </b><i class="fa fa-bars fa-2x"></i></a>
         <a href="login.html" class="btn btn-danger" title="Logout"><i class="fa fa-exclamation-circle fa-2x"></i></a>

@@ -11,6 +11,16 @@
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
     </div>
+    <% if @sub_domain == "seller" %>
+      <div class="field form-group">
+        <%= f.label :business_name %><br />
+        <%= f.text_field :business_name, autofocus: true, require: true, class: 'form-control' %>
+      </div>
+      <div class="field form-group">
+        <%= f.label :business_description %><br />
+        <%= f.text_field :business_description, autofocus: true, require: true, class: 'form-control' %>
+      </div>
+    <% end %>
 
     <div class="field form-group">
       <%= f.label :password %>

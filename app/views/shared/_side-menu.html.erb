@@ -17,17 +17,17 @@
             <li>
                 <%= link_to 'Dashboard', seller_path , class: 'fa fa-dashboard active-menu'%>
             </li>
-            <li>
+            <%# <li>
                 <a href="#"><i class="fa fa-desktop "></i>Product Categories<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                     <li>
                         <%= link_to 'New Category', new_category_path , class: 'fa fa-toggle-on'%>
-                    </li>
+                    <%# </li>
                     <li>
                         <%= link_to 'Existing Categories', categories_path , class: 'fa fa-bell'%>
-                    </li>
+                    <%# </li>
                 </ul>
-            </li>
+            </li> %>
                 <li>
                 <a href="#"><i class="fa fa-yelp "></i>Products <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
@@ -45,10 +45,19 @@
                 <ul class="nav nav-second-level">
                 
                     <li>
-                    <a ><i class="fa fa-desktop "></i>Pending Orders </a>
+                       <%= link_to 'Pending Orders', orders_path(type: 'pending') , class: 'fa fa-calendar'%>
+                    </li>
+                     <li>
+                        <%= link_to 'Delivered Orders', orders_path(type: 'delivered') , class: 'fa fa-truck'%>
                     </li>
                     <li>
-                    <a ><i class="fa fa-code "></i>Delivered Orders</a>
+                        <%= link_to 'Under Process', orders_path(type: 'processing')%>
+                    </li>
+                    <li>
+                       <%= link_to 'Failed orders', orders_path(type: 'failed')%>
+                    </li>
+                    <li>
+                        <%= link_to 'Cancelled Orders', orders_path(type: 'canceled')%>
                     </li>
                 </ul>
             </li>

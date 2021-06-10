@@ -15,21 +15,23 @@
         <%= form.label :current_price %>
         <%= form.text_field :current_price , class: 'form-control'%>
     </div>
+    <div>
+        <%= form.label :status%><br>
+        <%= form.radio_button :status, "True" %>
+        <%= form.label :status_true, "True" %>
+        <%= form.radio_button :status, "False" %>
+        <%= form.label :status_false, "False" %>
+    </div>
     <div class="field form-group">
         <%= form.label :category %>
-        <div style ="width: inherit !important">
+         <div>
             <%= form.select(:category_ids, Category.all.collect {|p| [ p.name, p.id ] }, 
-                                           { :prompt => "Please select"}, 
-                                           { :multiple => true, :size => 5 }) %>
-        </div>
+                                           { :prompt => ["select"]}, 
+                                           { :multiple => true, :size => 5, class: 'selectpicker ' , id: 'multiSelect',:include_blank => true}) %>
+         </div>
     </div>
-    <%= form.label :status%><br>
-    <%= form.radio_button :status, "True" %>
-    <%= form.label :status_true, "True" %>
-    <%= form.radio_button :status, "False" %>
-    <%= form.label :status_false, "False" %>
-
-  <div class="actions">
+  <div class="actions mt-10">
     <%= form.submit  class: 'btn btn-warning mb-5' %>
+    <%= link_to 'Back', products_path , class: 'btn btn-primary mt-3'%>
   </div>
 <% end %>

@@ -10,8 +10,12 @@
                         <strong><%= category.name%><strong>
                     </div>
                     <div class="col-6">
-                        <%= link_to 'Delete category', category_path(category), method: "delete", data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
-                        <%= link_to 'Edit Category', edit_category_path(category) , class: 'btn btn-sm btn-info' %>
+                        <% if can? :destroy, category %>
+                            <%= link_to 'Delete category', category_path(category), method: "delete", data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+                        <%end%>
+                        <% if can? :edit, category %>
+                            <%= link_to 'Edit Category', edit_category_path(category) , class: 'btn btn-sm btn-info' %>
+                        <%end%>
                     </div>
                 </div>
             </li>    

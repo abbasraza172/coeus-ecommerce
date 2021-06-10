@@ -10,7 +10,7 @@
         <div class="main-box mb-red">
             <a href="#">
                 <i class="fa fa-truck fa-5x"></i>
-                <h5>50 Orders Delivered</h5>
+                <h5><%= @delivered_orders%> Order Delivered</h5>
             </a>
         </div>
     </div>
@@ -18,7 +18,7 @@
         <div class="main-box mb-dull">
             <a href="#">
                 <i class="fa fa-calendar fa-5x"></i>
-                <h5>40 Pending Orders</h5>
+                <h5><%=@pending_orders%> Pending Orders</h5>
             </a>
         </div>
     </div>
@@ -26,7 +26,7 @@
         <div class="main-box mb-pink">
             <a href="#">
                 <i class="fa fa-dollar fa-5x"></i>
-                <h5>200K Profit</h5>
+                <h5><%=@total_cash%> Cash</h5>
             </a>
         </div>
     </div>

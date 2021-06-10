@@ -1,3 +1,9 @@
-<h1 class="bg-info text-center">New Category</h1>
-<%= render 'form', category: @category %>
-<%= link_to 'Back', categories_path , class: 'btn btn-primary mt-3'%>
+<div class="container">
+    <% if can? :new, @category %>
+        <h1 class="bg-info text-center">New Category</h1>
+        <%= render 'shared/cerrors' %>
+        <%= render 'form', category: @category %>
+    <%else%>
+    <h1 class="container">You Don't have the permissions for this action</h1>
+    <%end%>
+</div>

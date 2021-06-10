@@ -8,55 +8,36 @@
             <div class="list-group">
 
                 <a href="#" class="list-group-item">
-                    <i class="fa fa-twitter fa-fw"></i>3 New Followers
-                <span class="pull-right text-muted small"><em>12 minutes ago</em>
+                    <i class="fa fa-twitter fa-fw"></i><%= @orders.count %> Orders
+                <span class="pull-right text-muted small"><em><%= distance_of_time_in_words(Order.last.created_at, Time.now, include_seconds: true) %></em>
                 </span>
                 </a>
                 <a href="#" class="list-group-item">
-                    <i class="fa fa-envelope fa-fw"></i>Message Sent
+                    <i class="fa fa-envelope fa-fw"></i>Feedback Received
                 <span class="pull-right text-muted small"><em>27 minutes ago</em>
                 </span>
                 </a>
                 <a href="#" class="list-group-item">
-                    <i class="fa fa-tasks fa-fw"></i>New Task
-                <span class="pull-right text-muted small"><em>43 minutes ago</em>
+                    <i class="fa fa-tasks fa-fw"></i><%=Order.where(status: "pending").count%> Pending Orders
+                <%# <span class="pull-right text-muted small"><em><%= distance_of_time_in_words(Order.where(status: "pending").created_at, Time.now, include_seconds: true) %>
                 </span>
                 </a>
                 <a href="#" class="list-group-item">
-                    <i class="fa fa-upload fa-fw"></i>Server Rebooted
-                <span class="pull-right text-muted small"><em>11:32 AM</em>
+                    <i class="fa fa-warning fa-fw"></i><%=Order.where(status: "failed").count%> Rejected Orders
+                <%# <span class="pull-right text-muted small"><em><%= distance_of_time_in_words(Order.where(status: "pending").created_at, Time.now, include_seconds: true) %>
                 </span>
                 </a>
                 <a href="#" class="list-group-item">
-                    <i class="fa fa-bolt fa-fw"></i>Server Crashed!
-                <span class="pull-right text-muted small"><em>11:13 AM</em>
+                    <i class="fa fa-bolt fa-fw"></i><%=Order.where(status: "canceled").count%> Cancelled Orders
+                <%# <span class="pull-right text-muted small"><em><%= distance_of_time_in_words(Order.where(status: "pending").created_at, Time.now, include_seconds: true) %>
                 </span>
                 </a>
                 <a href="#" class="list-group-item">
-                    <i class="fa fa-warning fa-fw"></i>Server Not Responding
-                <span class="pull-right text-muted small"><em>10:57 AM</em>
-                </span>
-                </a>
-
-                <a href="#" class="list-group-item">
-                    <i class="fa fa-bolt fa-fw"></i>Server Crashed!
-                <span class="pull-right text-muted small"><em>11:13 AM</em>
-                </span>
-                </a>
-                <a href="#" class="list-group-item">
-                    <i class="fa fa-warning fa-fw"></i>Server Not Responding
-                <span class="pull-right text-muted small"><em>10:57 AM</em>
-                </span>
-                </a>
-                <a href="#" class="list-group-item">
-                    <i class="fa fa-shopping-cart fa-fw"></i>New Order Placed
-                <span class="pull-right text-muted small"><em>9:49 AM</em>
+                    <i class="fa fa-shopping-cart fa-fw"></i><%=Order.where(status: "pending").count%> New Order Placed
+                <%# <span class="pull-right text-muted small"><em><%= distance_of_time_in_words(Order.where(status: "pending").last.created_at, Time.now, include_seconds: true) %>
                 </span>
                 </a>
             </div>
-            <!-- /.list-group -->
-            <a href="#" class="btn btn-info btn-block">View All Alerts</a>
         </div>
-
     </div>
 </div>

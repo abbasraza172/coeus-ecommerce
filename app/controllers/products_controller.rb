@@ -2,7 +2,12 @@ class ProductsController < ApplicationController
     before_action :set_product, only: [ :edit, :update, :destroy]
     layout 'seller-layout', only: [:index, :create, :new, :edit]
     def index
-        @products = Product.all
+      if user_signed_in?
+        @products =current_user.business.products
+        # @products = current_user.business.products rescue []
+      else
+        redirect_to new_user_session_path
+      end
     end
     
     def new
@@ -10,8 +15,9 @@ class ProductsController < ApplicationController
     end
     
     def create
+      # product_params[:category_ids] = product_params[:category_ids].reject{|c| c.blank? }
       @product = Product.new(product_params)
-      @product.user_id = 1
+      @product.business_id = current_user.business_id
       if @product.save
         flash[:notice] = 'product successfully created.'
         redirect_to products_path
@@ -33,11 +39,11 @@ class ProductsController < ApplicationController
     private
     
     def product_params
-      params.require(:product).permit(:name, :description, :current_price, :quantity, :status, :user_id, :category_ids => [])
+      params.require(:product).permit(:name, :description, :current_price, :quantity, :status, :category_ids => [])
     end
     
     def set_product
       @product = Product.find(params[:id])
     end
-    
+        
 end

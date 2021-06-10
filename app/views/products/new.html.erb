@@ -1,3 +1,5 @@
-<h1 class="bg-info text-center">New Product</h1>
-<%= render 'form', product: @product %>
-<%= link_to 'Back', products_path , class: 'btn btn-primary mt-3'%>
+<div class="container">
+    <%= render 'shared/errors' %>
+    <h1 class="bg-info text-center">New Product</h1>
+    <%= render 'form', product: @product %>
+</div>

@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  before_create :create_business,  if: Proc.new { seller? }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -17,6 +18,8 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :email, presence: true
 
+  attr_accessor :business_name, :business_description
+
   #enum for roles
   enum role: { admin: 0, seller: 1, customer: 2 }
 
@@ -32,4 +35,12 @@ class User < ApplicationRecord
   def has_access(right)
     User::ACCESS_RIGHTS[self.role].include?(right)
   end
+
+  def create_business
+    business = Business.create(name: self.business_name)
+    self.business_id = business.id
+    business_description = Business.create(name: self.business_description)
+    self.business_description = business_description.description
+  end
+
 end
