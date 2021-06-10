@@ -14,6 +14,7 @@ window.bootstrap_min = require("customer/landing-page/bootstrap.min")
 require("customer/landing-page/jquery.easing-1.3.min")
 require("customer/landing-page/jquery.scrollTo-1.4.3.1-min")
 require("customer/landing-page/shop")
+require("customer/landing-page/cart")
 
 Rails.start()
 Turbolinks.start()
