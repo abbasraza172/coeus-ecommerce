@@ -24,11 +24,7 @@
                             <td><%= order.user_id%></td>
                             <td><%= order.total_bill%></td>
                             <td><%= order.status %></td>
-                            <% if !(order.status == "delivered") %>
-                                <td><%= link_to 'Update status', edit_order_path(order) , class: 'btn btn-info' %></td>
-                            <% else %>
-                            <td>N/A</td>
-                            <%end%>
+                                <td><%= link_to 'Update status', edit_order_path(order) , class: 'btn btn-info', disabled: (order.status == "delivered")   %></td>
                         </tr>
                     <% end %>
                 </tbody>

@@ -1,10 +1,14 @@
 class SellerProductsController < ApplicationController
+    before_action :authenticate_user!, :validate_domain
     before_action :set_product, only: [ :edit, :update, :destroy]
     layout 'seller-layout', only: [:index, :create, :new, :edit]
     def index
       if user_signed_in?
-        @products =current_user.business.products
-        # @products = current_user.business.products rescue []
+        if current_user.admin?
+          @products =Product.all
+        else  
+          @products =current_user.business.products rescue []
+        end
       else
         redirect_to new_user_session_path
       end
@@ -15,7 +19,6 @@ class SellerProductsController < ApplicationController
     end
     
     def create
-      # product_params[:category_ids] = product_params[:category_ids].reject{|c| c.blank? }
       @product = Product.new(product_params)
       @product.business_id = current_user.business_id
       if @product.save

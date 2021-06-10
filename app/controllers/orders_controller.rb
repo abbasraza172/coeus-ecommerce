@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-    before_action :set_order, only: [ :edit, :update, :destroy]
+    before_action :set_order, only: [:edit, :update, :destroy]
     layout 'seller-layout', only: [:index, :show, :create, :new, :edit]
     def index
       if(params[:type])
@@ -28,9 +28,9 @@ class OrdersController < ApplicationController
         render :new
       end
     end
-    
+
     def update
-      @delivered_order = @order.update(order_status_params)
+      @order.update(order_status_params)
       redirect_to orders_path
     end
 
@@ -50,7 +50,7 @@ class OrdersController < ApplicationController
     end
     
     def set_order
-      @order = current_user.orders.find(params[:id]) rescue []
+      @order = current_user.business.orders.find(params[:id]) rescue []
     end
     
 end

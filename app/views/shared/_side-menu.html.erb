@@ -5,9 +5,14 @@
                 <div class="user-img-div">
 
                     <div class="inner-text">
-                      <p><%=@sub_domain %> Name:    <%= current_user.name %></p>
-                    <br />
-                        <small>User First login:   <%= distance_of_time_in_words(current_user.created_at, Time.now, include_seconds: true) %>  ago</small>
+                        <% if user_signed_in?%>
+                            <p><%=@sub_domain %> Name:    <%= current_user.name %></p>
+                            <br />
+                            <small>User First login:   <%= distance_of_time_in_words(current_user.created_at, Time.now, include_seconds: true) %>  ago</small>
+                        <%else%>
+                        <p><%=@sub_domain %></p>
+                            <br />
+                        <%end%>
                     </div>
                 </div>
 
@@ -17,17 +22,17 @@
             <li>
                 <%= link_to 'Dashboard', seller_path , class: 'fa fa-dashboard active-menu'%>
             </li>
-            <%# <li>
+            <li>
                 <a href="#"><i class="fa fa-desktop "></i>Product Categories<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                     <li>
                         <%= link_to 'New Category', new_category_path , class: 'fa fa-toggle-on'%>
-                    <%# </li>
+                    </li>
                     <li>
                         <%= link_to 'Existing Categories', categories_path , class: 'fa fa-bell'%>
-                    <%# </li>
+                    </li>
                 </ul>
-            </li> %>
+            </li>
                 <li>
                 <a href="#"><i class="fa fa-yelp "></i>Products <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
@@ -40,27 +45,29 @@
                     
                 </ul>
             </li>
-            <li>
-                <a href="#"><i class="fa fa-bicycle "></i>Orders <span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                
-                    <li>
-                       <%= link_to 'Pending Orders', orders_path(type: 'pending') , class: 'fa fa-calendar'%>
-                    </li>
-                     <li>
-                        <%= link_to 'Delivered Orders', orders_path(type: 'delivered') , class: 'fa fa-truck'%>
-                    </li>
-                    <li>
-                        <%= link_to 'Under Process', orders_path(type: 'processing')%>
-                    </li>
-                    <li>
-                       <%= link_to 'Failed orders', orders_path(type: 'failed')%>
-                    </li>
-                    <li>
-                        <%= link_to 'Cancelled Orders', orders_path(type: 'canceled')%>
-                    </li>
-                </ul>
-            </li>
+            <%if !current_user.admin?%>
+                <li>
+                    <a href="#"><i class="fa fa-bicycle "></i>Orders <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                    
+                        <li>
+                        <%= link_to 'Pending Orders', orders_path(type: 'pending') , class: 'fa fa-calendar'%>
+                        </li>
+                        <li>
+                            <%= link_to 'Delivered Orders', orders_path(type: 'delivered') , class: 'fa fa-truck'%>
+                        </li>
+                        <li>
+                            <%= link_to 'Under Process', orders_path(type: 'processing')%>
+                        </li>
+                        <li>
+                        <%= link_to 'Failed orders', orders_path(type: 'failed')%>
+                        </li>
+                        <li>
+                            <%= link_to 'Cancelled Orders', orders_path(type: 'canceled')%>
+                        </li>
+                    </ul>
+                </li>
+            <%end%>    
         </ul>
 
     </div>

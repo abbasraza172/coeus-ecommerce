@@ -13,14 +13,21 @@ import "channels"
 
 
 require('jquery')
-require("packs/jquery-1.10.2")
-require("packs/jquery.metisMenu")
+
+// require("packs/jquery-1.10.2")
 require("packs/bootstrap-seller")
+// require("packs/dropdownjquery")
+require("packs/dropdownselect")
+
+
+require("packs/jquery.metisMenu")
+
 require("packs/custom")
-require("packs/dropdownmin")
-require("packs/dropdownjquery")
-// window.ddSelect =   require("packs/dropdownselect")
-// $('#multiSelect').selectpicker();
+
+
+// $(document).on("turbolinks:load", function () {
+//      $('#multiSelect').selectpicker();
+// })
 
 Rails.start()
 Turbolinks.start()
