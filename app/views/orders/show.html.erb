@@ -1,0 +1,51 @@
+<div class="card" style="width: 100%; margin: auto;">
+    <div class="card-header">
+      <h1>Order Details</h1>
+    </div>
+    
+
+    <div class="col-md-12">
+        <ul class="container">
+            <li>
+                <a href="#" class="list-group-item">Order Id
+                <span class="pull-right text-muted"><em><%= @order.id%></em>
+                </span>
+                </a>
+            </li>
+
+            <%@order.products.each do |product|%>
+                <li>
+                    <a href="#" class="list-group-item">Product Name
+                    <span class="pull-right text-muted"><em><%= product.name%></em>
+                    </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="list-group-item">Product Description
+                    <span class="pull-right text-muted"><em><%= product.description%></em>
+                    </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="list-group-item">Product Quantity
+                    <span class="pull-right text-muted"><em><%= product.quantity%></em>
+                    </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="list-group-item">Current Price
+                    <span class="pull-right text-muted"><em><%= product.current_price%></em>
+                    </span>
+                    </a>
+                </li>
+            <%end%>
+           <li>
+                <a href="#" class="list-group-item">Total Bill
+                <span class="pull-right text-muted"><em><%= @order.total_bill%></em>
+                </span>
+                </a>
+            </li>
+        </ul>
+    </div>    
+</div>

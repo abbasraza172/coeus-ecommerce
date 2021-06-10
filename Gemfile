@@ -24,8 +24,14 @@ gem 'jbuilder', '~> 2.7'
 gem 'jquery-rails'
 
 #gem font-awesome
-gem "font-awesome-rails"
+#gem "font-awesome-rails"
 
+#devise
+gem 'devise'
+
+#jquery and font-awesome
+gem "font-awesome-rails"
+gem 'jquery-rails'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -37,6 +43,9 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
+
+#cancancan gem
+gem 'cancancan'
 
 group :development do
   gem "better_errors"

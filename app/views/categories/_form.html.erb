@@ -1,0 +1,16 @@
+<%= form_for category do |form| %>
+  <div class="field form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name , class: 'form-control'%>
+  </div>
+    <%= form.label :status%><br>
+    <%= form.radio_button :status, "True" %>
+    <%= form.label :status_true, "True" %>
+    <%= form.radio_button :status, "False" %>
+    <%= form.label :status_false, "False" %>
+
+  <div class="actions">
+    <%= form.submit  class: 'btn btn-warning mb-5' %>
+    <%= link_to 'Back', categories_path , class: 'btn btn-primary mt-3'%>
+  </div>
+<% end %>
