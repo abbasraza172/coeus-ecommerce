@@ -26,12 +26,12 @@
                             <td><%= product.description%></td>
                             <td><%= product.categories.pluck(:name).to_sentence %></td>
                             <% if can? :destroy, product %>
-                                <td><%= link_to 'Delete product', product_path(product), method: "delete", data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+                                <td><%= link_to 'Delete product', seller_product_path(product), method: "delete", data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
                             <%else%>
                                 <td>N/A</td>
                             <%end%>    
                             <% if can? :edit, product %>
-                                <td><%= link_to 'Edit product', edit_product_path(product) , class: 'btn btn-info' %></td>
+                                <td><%= link_to 'Edit product', edit_seller_product_path(product) , class: 'btn btn-info' %></td>
                             <%else%>
                                 <td>N/A</td>
                             <%end%>

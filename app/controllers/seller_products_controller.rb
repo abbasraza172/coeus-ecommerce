@@ -1,4 +1,4 @@
-class ProductsController < ApplicationController
+class SellerProductsController < ApplicationController
     before_action :set_product, only: [ :edit, :update, :destroy]
     layout 'seller-layout', only: [:index, :create, :new, :edit]
     def index
@@ -20,7 +20,7 @@ class ProductsController < ApplicationController
       @product.business_id = current_user.business_id
       if @product.save
         flash[:notice] = 'product successfully created.'
-        redirect_to products_path
+        redirect_to seller_products_path
       else
         render :new
       end
@@ -28,12 +28,12 @@ class ProductsController < ApplicationController
     
     def update
       @product.update(product_params)
-      redirect_to products_path
+      redirect_to seller_products_path
     end
     
     def destroy
       @product.destroy
-      redirect_to products_path
+      redirect_to seller_products_path
     end
     
     private
