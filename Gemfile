@@ -33,6 +33,8 @@ gem 'devise'
 gem "font-awesome-rails"
 gem 'jquery-rails'
 
+#gem glyphicons
+gem 'glyphicons-rails', '~> 0.1.2'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
