@@ -19,7 +19,6 @@ module CoeusEcommerce
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
     config.hosts << "lvh.me"
-    config.hosts << "first.buyer.lvh.me"
     config.hosts << "buyer.lvh.me"
     config.hosts << "seller.lvh.me"
     config.hosts << "admin.lvh.me"

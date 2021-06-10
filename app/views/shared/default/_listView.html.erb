@@ -15,7 +15,10 @@
           <h3> $<%=product.current_price%></h3>
           <br>
           <div class="btn-group">
-            <a href="product_details.html" class="defaultBtn"><span class="fa fa-shopping-cart"></span> Add to cart</a>
+            <a class="defaultBtn" onclick = "window.addToCart(<%= product.id%>,'<%= product.name%>', 1,<%= product.current_price%>, '' )">
+              <span class="fa fa-shopping-cart"></span>
+              Add to cart
+            </a>
             <a href="<%= product_path(product)%>" class="shopBtn">VIEW</a>
           </div>
         </div>
