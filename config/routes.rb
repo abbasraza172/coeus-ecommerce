@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-    sessions: 'users/sessions',
-    registrations: 'users/registrations',
-    passwords: 'users/passwords'
-  }
-  root to: 'home#main'
-  get '/home/next', to: 'home#next'
-  get '/index', to: 'home#index'
-  get '/seller', to: 'seller#index'
+            sessions: "users/sessions",
+            registrations: "users/registrations",
+            passwords: "users/passwords",
+          }
+  root to: "home#main"
+  get "/home/next", to: "home#next"
+  get "/index", to: "home#index"
+  get "/seller", to: "seller#index"
   get "/cart", to: "home#cart"
   get "/products/list_view", to: "products#list_view"
   get "/products/gird_view", to: "products#grid_view"
