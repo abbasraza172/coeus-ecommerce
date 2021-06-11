@@ -3,28 +3,14 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-
-
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
-
-environment.plugins.prepend('Provide',
-  new webpack.ProvidePlugin({
-    $: 'jquery/src/jquery',
-    jQuery: 'jquery/src/jquery'
-  })
-)
-
-require('jquery')
-require("packs/jquery-1.10.2")
-require("packs/jquery.metisMenu")
-require("packs/bootstrap-seller")
-require("packs/custom")
-require("packs/dropdownmin")
-require("packs/dropdownjquery")
+require("feedback/jquery")
+require("feedback/bootstrap-3.0.1.min")
+window.feedback_form = require("feedback/feedback-form")
 
 Rails.start()
 Turbolinks.start()

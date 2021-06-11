@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <style>
+      table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Hi <%= @order.user.name%>,</p>
+    <p>Your order has been delivered.</p>
+    <strong>
+      <p> Please review your order by clicking the link: <a href="<%= new_feedback_url(order_id: @order.id, user_id: @order.user.id, reviewable_type: "business", reviewable_id: @order.businesses.first.id) %>">Click to Review</a></p>
+    </strong>
+    <br>
+    <p>
+      <strong>Order Details:</strong><br>
+      -------------------------------------------------------------------<br>
+      <strong>Customer Name: </strong> <%= @order.user.name%><br>
+      <strong>Order Id: </strong> <%= @order.id%><br>
+      <strong>Order Placement Date: </strong> <%= @order.created_at.strftime("%d-%m-%Y  %I:%M %p")%><br>
+      <strong>Order Status: </strong> <%= @order.status%><br>
+      <strong>Delivery Address: </strong> <%= @order.delivery_address%><br>
+      <strong>Total Bill: </strong> <%= @order.total_bill%><br>
+    </p>
+    <table style="width:70%">
+      <thead>
+        <tr>
+          <th>Product Name</th>
+          <th>Unit Price</th>
+          <th>Quantity</th>
+          <th>Total Price</th>
+        </tr>
+      </thead>
+      <tbody >
+        <% @order.order_products.each do |product|%>
+          <tr>
+            <td><%=product.product.name%></td>
+            <td><%=product.price%></td>
+            <td><%=product.quantity%></td>
+            <td><%=product.price * product.quantity%></td>
+          </tr>
+        <%end%>
+      </tbody>
+    </table>
+    <br>
+    <pre>Thank you<br>Team Coeus Express</pre>
+  </body>
+</html>
