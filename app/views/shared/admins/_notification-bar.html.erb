@@ -1,0 +1,35 @@
+ <div class="col-md-4">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <i class="fa fa-bell fa-fw"></i>Notifications Panel
+        </div>
+
+        <div class="panel-body">
+            <div class="list-group">
+
+                <a href="#" class="list-group-item">
+                    <i class="fa fa-twitter fa-fw"></i><%= @orders.count %> Orders
+                <span class="pull-right text-muted small"><em><%= distance_of_time_in_words(Order.last.created_at, Time.now, include_seconds: true) %></em>
+                </span>
+                </a>
+                <a href="#" class="list-group-item">
+                    <i class="fa fa-envelope fa-fw"></i>Feedback Received
+                    <span class="pull-right text-muted small"><em>27 minutes ago</em>
+                    </span>
+                </a>
+                <a href="#" class="list-group-item">
+                    <i class="fa fa-tasks fa-fw"></i><%= @pending_orders%> Pending Orders
+                </a>
+                <a href="#" class="list-group-item">
+                    <i class="fa fa-warning fa-fw"></i><%=Order.where(status: "failed").count%> Rejected Orders
+                </a>
+                <a href="#" class="list-group-item">
+                    <i class="fa fa-bolt fa-fw"></i><%=Order.where(status: "canceled").count%> Cancelled Orders
+                </a>
+                <a href="#" class="list-group-item">
+                    <i class="fa fa-shopping-cart fa-fw"></i><%=@pending_orders%> New Order Placed
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

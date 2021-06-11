@@ -246,3 +246,12 @@ ul#filters {
 /* #product_category_ids{
     width:100% 
 } */
+.pagination{
+    cursor: pointer;
+    margin: auto;
+    height: 22px;
+}
+.disabled{
+    display:none;
+    border: 1px solid green;
+}

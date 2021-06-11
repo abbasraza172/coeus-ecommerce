@@ -10,18 +10,11 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
-
-environment.plugins.prepend('Provide',
-  new webpack.ProvidePlugin({
-    $: 'jquery/src/jquery',
-    jQuery: 'jquery/src/jquery'
-  })
-)
-
 require('jquery')
-require("packs/jquery-1.10.2")
-require("packs/jquery.metisMenu")
+require("@nathanvda/cocoon")
 require("packs/bootstrap-seller")
+require("packs/dropdownselect")
+require("packs/jquery.metisMenu")
 require("packs/custom")
 require("packs/dropdownmin")
 require("packs/dropdownjquery")

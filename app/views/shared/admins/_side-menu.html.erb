@@ -1,0 +1,67 @@
+<nav class="navbar-default navbar-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav" id="main-menu">
+            <li>
+                <div class="user-img-div">
+
+                    <div class="inner-text">
+                      <p>Name: <%= @sub_domain %></p>
+                     <br />
+                    </div>
+                </div>
+
+            </li>
+
+
+            <li>
+                <%= link_to 'Dashboard', admin_path , class: 'fa fa-dashboard active-menu'%>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-desktop "></i>Categories<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                    <li>
+                        <%= link_to 'New Category', new_category_path , class: 'fa fa-toggle-on'%>
+                    </li>
+                    <li>
+                        <%= link_to 'Existing Categories', categories_path , class: 'fa fa-bell'%>
+                    </li>
+                </ul>
+            </li>
+                <li>
+                <a href="#"><i class="fa fa-yelp "></i>Products <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                    <li>
+                        <%= link_to 'New Product', new_seller_product_path , class: 'fa fa-coffee'%>
+                    </li>
+                    <li>
+                        <%= link_to 'All Products', seller_products_path , class: 'fa fa-flash'%>
+                    </li>
+                    
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-bicycle "></i>Orders <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                
+                    <li>
+                       <%= link_to 'Pending Orders', orders_path(type: 'pending') , class: 'fa fa-calendar'%>
+                    </li>
+                     <li>
+                        <%= link_to 'Delivered Orders', orders_path(type: 'delivered') , class: 'fa fa-truck'%>
+                    </li>
+                    <li>
+                        <%= link_to 'Under Process', orders_path(type: 'processing')%>
+                    </li>
+                    <li>
+                       <%= link_to 'Failed orders', orders_path(type: 'failed')%>
+                    </li>
+                    <li>
+                        <%= link_to 'Cancelled Orders', orders_path(type: 'canceled')%>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+
+</nav>

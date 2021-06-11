@@ -42,13 +42,12 @@ class OrdersController < ApplicationController
         render :new
       end
     end
-  end
 
   def update
-    @delivered_order = @order.update(order_status_params)
+    @order.update(order_status_params)
     redirect_to orders_path
   end
-
+        
   def destroy
     @order.destroy
     redirect_to orders_path
@@ -61,8 +60,8 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:delivery_address, :total_bill, :user_id, product_details: [])
-  end
+      params.require(:order).permit(:delivery_address, :total_bill, :user_id)
+    end
 
   def set_order
     @order = current_user.orders.find(params[:id]) rescue []

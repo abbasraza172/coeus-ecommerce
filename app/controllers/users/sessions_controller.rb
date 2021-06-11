@@ -9,9 +9,15 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    user_email = params[:user][:email] rescue ""
+    user = User.find_by(email: user_email)
+    if (@sub_domain == "buyer" && user.customer?) || (@sub_domain == "seller" && user.seller?) || (@sub_domain == "admin" && user.admin?)
+      super
+    else
+      redirect_to new_user_session_path
+    end
+  end
 
   # DELETE /resource/sign_out
   # def destroy

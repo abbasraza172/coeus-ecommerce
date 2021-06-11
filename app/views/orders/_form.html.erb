@@ -1,26 +1,9 @@
 <%= form_for order do |form| %>
-    <div class="field form-group">
-        <%= form.label :Order_Id %>
-        <%= form.text_field :id , class: 'form-control muted'%>
-    </div>
-    <div class="field form-group">
-        <%= form.label :total_bill %>
-        <%= form.text_field :total_bill , class: 'form-control muted'%>
-    </div>
 
-    <div class="field form-group">
-        <%= form.label :status%><br>
-        <%= form.radio_button :status, "Accepted" %>
-        <%= form.label :status_processing, "Processing" %>
-        <%= form.radio_button :status, "failed" %>
-        <%= form.label :status_failed, "failed" %>
-        <%= form.radio_button :status, "Cancelled" %>
-        <%= form.label :status_cancelled, "Cancelled" %>
-        <%= form.radio_button :status, "delivered" %>
-        <%= form.label :status_delivered, "delivered" %>
-    </div>
+    <%= form.label :status %>
+    <%= form.select :status ,options_for_select(Order::statuses.keys), class: 'form-control'%>
 
-  <div class="actions">
-    <%= form.submit  class: 'btn btn-warning mb-5' %>
-  </div>
+    <div class="actions">
+      <%= form.submit  class: 'btn btn-warning mb-5' %>
+    </div>
 <% end %>
