@@ -42,3 +42,4 @@ yarn-debug.log*
 
 #database file
 /config/database.yml
+/public
