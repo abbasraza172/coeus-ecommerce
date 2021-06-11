@@ -3,7 +3,7 @@
     <div class="container">
       <div class="">
         <a href="<%=index_path%>" class="<%= "active" if current_page?(index_path) %>"> <span class="fa fa-home"></span> Home</a>
-        <a href="<%=new_user_session_path%>"><span class="fa fa-user"></span> <%= current_user ? "My Account" : "Login" %></a>
+        <a href="<%= current_user ? my_account_path : new_user_session_path%>"><span class="fa fa-user"></span> <%= current_user ? "My Account" : "Login" %></a>
         <%unless current_user%>
           <a href="<%=new_user_registration_path%>"><span class="fa fa-user-plus"></span> Free Register </a>
         <%end%>
