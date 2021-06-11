@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_09_193504) do
+ActiveRecord::Schema.define(version: 2021_06_09_193041) do
+
   create_table "businesses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.text "description"
@@ -37,8 +38,6 @@ ActiveRecord::Schema.define(version: 2021_06_09_193504) do
     t.bigint "reviewable_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "order_id"
-    t.index ["order_id"], name: "index_feedbacks_on_order_id"
     t.index ["reviewable_type", "reviewable_id"], name: "index_feedbacks_on_reviewable"
     t.index ["user_id"], name: "index_feedbacks_on_user_id"
   end
@@ -109,8 +108,6 @@ ActiveRecord::Schema.define(version: 2021_06_09_193504) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.index ["business_id"], name: "index_users_on_business_id"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "feedbacks", "users"
