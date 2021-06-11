@@ -19,7 +19,7 @@ class HomeController < ApplicationController
     elsif @sub_domain == "seller"
       redirect_to seller_path
     elsif @sub_domain == "admin"
-      redirect_to admin_path
+      redirect_to seller_path
     else
       redirect_to index_path
     end

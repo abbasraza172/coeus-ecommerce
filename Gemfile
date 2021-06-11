@@ -22,6 +22,9 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+#datatable
+gem 'jquery-datatables-rails'
+
 #gem font-awesome
 #gem "font-awesome-rails"
 
@@ -37,7 +40,7 @@ gem "font-awesome-rails"
 gem 'jquery-rails'
 
 #pagination
-gem "will_paginate"
+gem 'will_paginate', '~> 3.0'
 
 #shrine
 gem 'shrine', '~> 3.3'

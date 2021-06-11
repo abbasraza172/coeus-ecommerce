@@ -1,1 +1,24 @@
-<h1><%= @product.name%></h1>
+<div class="container mt-10">
+    <div class="card bg-warning" style="width: 80rem;">
+        <%= image_tag @display_picture, alt: "Product_image", class: 'card-img-top',style: 'width: 80rem' %>
+        <div class="card-body">
+            <h5 class="card-title"><%=current_user.name%>'s Product</h5>
+            <h5 class="card-subtitle mb-2 text-muted" style="font-weight: bold; color: black;">Product id: <%=@product.id%></h5>
+            <p class="card-text">
+                <strong>Product Name: </strong><%= @product.name%>
+                </p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">  
+                <%= @product.feedbacks.each do |fd|%>
+                    <h5>FeedBack: <%= fd%></h5>
+                <%end%>
+            </li>
+        </ul>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">  
+                <%= link_to 'More images', class: 'btn btn-primary'%>
+            </li>
+        </ul>
+    </div>   
+</div>
