@@ -14,4 +14,7 @@ class Product < ApplicationRecord
   validates :name, presence: true
   validates :current_price, numericality: true
   validates :quantity, numericality: true
+
+  accepts_nested_attributes_for :pictures, reject_if: :all_blank, allow_destroy: true
+
 end

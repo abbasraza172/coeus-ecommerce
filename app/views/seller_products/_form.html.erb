@@ -30,6 +30,17 @@
                                            { :multiple => true, :size => 5, class: 'selectpicker ' , id: 'multiSelect',:include_blank => true}) %>
          </div>
     </div>
+    
+    <div>
+        <%= form.fields_for :pictures do |picture_form| %>
+            <div class="field">
+                <%= picture_form.file_field :image %>
+            </div>
+        <% end %>
+        <div class="links">
+            <%= link_to_add_association 'add picture', form, :pictures %>
+        </div>
+    </div>   
   <div class="actions mt-10">
     <%= form.submit  class: 'btn btn-warning mb-5' %>
     <%= link_to 'Back', seller_products_path , class: 'btn btn-primary mt-3'%>

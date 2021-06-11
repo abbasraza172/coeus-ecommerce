@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_03_203926) do
+ActiveRecord::Schema.define(version: 2021_06_10_190227) do
 
   create_table "businesses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -64,11 +64,12 @@ ActiveRecord::Schema.define(version: 2021_06_03_203926) do
   end
 
   create_table "pictures", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name"
     t.string "imageable_type", null: false
     t.bigint "imageable_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "image_data"
     t.index ["imageable_type", "imageable_id"], name: "index_pictures_on_imageable"
   end
 

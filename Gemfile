@@ -26,6 +26,10 @@ gem 'jquery-rails'
 #gem font-awesome
 #gem "font-awesome-rails"
 
+#cocoon
+gem "cocoon"
+
+
 #devise
 gem 'devise'
 
@@ -36,6 +40,9 @@ gem 'jquery-rails'
 #pagination
 gem "will_paginate"
 
+#shrine
+gem 'shrine', '~> 3.3'
+gem 'image_processing', '~> 1.12', '>= 1.12.1'
 
 
 # Use Active Storage variant

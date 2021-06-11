@@ -13,6 +13,8 @@ import "channels"
 
 
 require('jquery')
+require("@nathanvda/cocoon")
+
 
 // require("packs/jquery-1.10.2")
 require("packs/bootstrap-seller")
