@@ -2,6 +2,9 @@ class Order < ApplicationRecord
   #callback
   after_update :send_feedback_email
 
+  #attribute accessor
+  attr_accessor :product_details
+
   #Sends email to customer for feedback
   #
   #It checks if the status of order is changed form
