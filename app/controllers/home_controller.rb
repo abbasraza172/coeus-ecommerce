@@ -3,10 +3,14 @@ class HomeController < ApplicationController
   
 
   def index
-    @categories = Category.where(status: true).order(name: "ASC")
-    @new_products = Product.order(created_at: "DESC").limit(6)
-    @popular_products = Product.all
-    @featured_products = Product.all
+    if @sub_domain == "buyer"
+      @categories = Category.where(status: true).order(name: "ASC")
+      @new_products = Product.order(created_at: "DESC").limit(6)
+      @popular_products = Product.all
+      @featured_products = Product.all
+    else
+      redirect_to home_next_path
+    end
   end
 
   def main

@@ -1,0 +1,26 @@
+body{background-color: #F5F5F5; }
+
+#main-col-div{
+    margin:50px 250px;
+}
+
+#review-box{
+    background-color:#FFFFFF;
+}
+
+.animated {
+    -webkit-transition: height 0.2s;
+    -moz-transition: height 0.2s;
+    transition: height 0.2s;
+}
+
+.stars
+{
+    margin: 20px 0;
+    font-size: 26px;
+    color: #F0A419;
+}
+
+h4{
+    color:#5F6368;
+}

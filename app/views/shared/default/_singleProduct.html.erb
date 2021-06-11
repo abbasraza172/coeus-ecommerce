@@ -44,39 +44,70 @@
     </div>
     <hr class="softn clr" />
     <ul id="productDetail" class="nav nav-tabs">
-      <li class="active"><a href="#home" data-toggle="tab">Product Details</a></li>
-      <li class=""><a href="#profile" data-toggle="tab">Related Products </a></li>
+      <li class="active"><a href="#detail" data-toggle="tab">Product Details</a></li>
+      <li class=""><a href="#reviews" data-toggle="tab">Reviews </a></li>
+      <li class=""><a href="#related-products" data-toggle="tab">Related Products </a></li>
     </ul>
     <div id="myTabContent" class="tab-content tabWrapper">
-      <div class="tab-pane fade active in" id="home">
+      <div class="tab-pane fade active in" id="detail">
         <h4>Product Description</h4>
         <p><%=product.description%></p>
       </div>
-      <div class="tab-pane fade" id="profile">
-        <div class="row-fluid">
-          <div class="span2">
-            <img src="assets/img/d.jpg" alt="">
-          </div>
-          <div class="span6">
-            <h5>Product Name </h5>
-            <p>
-              Nowadays the lingerie industry is one of the most successful business spheres.
-              We always stay in touch with the latest fashion tendencies -
-              that is why our goods are so popular..
-            </p>
-          </div>
-          <div class="span4 alignR">
-            <form class="form-horizontal qtyFrm">
-              <h3> $140.00</h3>
-              <div class="btn-group">
-                <a href="#" class="defaultBtn"><span
-													class=" fa fa-shopping-cart"></span> Add to cart</a>
-                <a href="#" class="shopBtn">VIEW</a>
+      <div class="tab-pane fade" id="reviews">
+        <% if @feedbacks.empty? %>
+          <div style="text-align:center;">No Review Found</div>
+        <% else %>
+          <% @feedbacks.each do |feedback| %>
+            <div class="row-fluid">
+              <div class="span12">
+                <h5><%=feedback.user.name%> </h5>
+                <% (1..5).each do |i| %>
+                  <% if i<= feedback.stars%>
+                    <span class="fa fa-star fa-lg checked"></span>
+                  <%else%>
+                    <span class="fa fa-star fa-lg"></span>
+                  <%end%>
+                <% end %>
+                <br>
+                <br>
+                <p>
+                  <%=feedback.review%>
+                </p>
               </div>
-            </form>
-          </div>
-        </div>
-        <hr class="soft">
+            </div>
+            <hr class="soft">
+          <%end%>
+        <%end%>
+      </div>
+      <div class="tab-pane fade" id="related-products">
+        <% if @related_products.empty? %>
+          <div style="text-align:center;">No Product Found</div>
+        <%else%>
+          <% @related_products.each_with_index do |related_product, index| %>
+            <div class="row-fluid">
+              <div class="span2">
+                <%= image_tag "products/"+(index%6).to_s+".jpg", alt:""%>
+              </div>
+              <div class="span6">
+                <h5><%=related_product.name%></h5>
+                <p>
+                  <%=related_product.description%>
+                </p>
+              </div>
+              <div class="span4 alignR">
+                <form class="form-horizontal qtyFrm">
+                  <h3> $<%=related_product.current_price%></h3>
+                  <div class="btn-group">
+                    <a class="defaultBtn" onclick = "window.addToCart(<%= related_product.id%>,'<%= related_product.name%>', 1,<%= related_product.current_price%>, '' )"><span
+													class=" fa fa-shopping-cart"></span> Add to cart</a>
+                    <a href="<%= product_path(related_product)%>" class="shopBtn">VIEW</a>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <hr class="soft">
+          <%end%>
+        <%end%>
       </div>
     </div>
   </div>

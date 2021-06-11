@@ -1,0 +1,29 @@
+<div class="row" >
+  <div class="col" id ="main-col-div">
+    <%= image_tag "landing-page/logo_coeus.png", alt: "logo", height: "25%", width: "25%"%>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h4>Please submit your valuable review below.</h4>
+    <h4>You are reviewing the <%=params[:reviewable_type]%>: <strong><%=@reviewable_name%></strong></h4>
+    <div class="well well-sm" id="review-box">
+      <div class="row" id="post-review-box" style="display:none;">
+        <div class="col-md-12">
+          <%= form_with model: @feedback, url: feedbacks_path do |form| %>
+            <input id="ratings-hidden" name="feedback[stars]" type="hidden" required>
+            <%= form.text_area :review, size: "50x10", class: "form-control animated", id:"new-review", placeholder: "Enter your review here..." %>
+            <%= form.hidden_field :user_id, value: @feedback.user_id %>
+            <%= form.hidden_field :order_id, value: @feedback.order_id %>
+            <%= form.hidden_field :reviewable_type, value: @feedback.reviewable_type %>
+            <%= form.hidden_field :reviewable_id, value: @feedback.reviewable_id %>
+            <div class="text-center">
+              <div class="stars starrr" data-rating="0" ></div>
+              <%= form.submit "Submit", id:"submit-btn",  class: "btn btn-success btn-md" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
