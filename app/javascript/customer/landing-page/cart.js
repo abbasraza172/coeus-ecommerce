@@ -1,6 +1,16 @@
 $(document).on("turbolinks:load", function () {
+    $("#order-form").submit(function(e){
+        if (CART.contents.length == 0)
+        {
+            alert("Your Cart is Empty!!!")
+            return false;
+        }
+        $('input[name=product_details]').val(JSON.stringify(CART.contents));
+        $('input[name=total_bill]').val(totalBill);
+        CART.empty()
+      });
     CART.init();
-    showCart();
+    showCart();  
 })
 
 /*
@@ -22,6 +32,8 @@ window.addToCart = function (id, name, quantity, price, image) {
 
     addItem(product);
 }
+
+var totalBill = 0;
 
 /*
  * Constant CART object
@@ -184,7 +196,7 @@ function showCart() {
     let cartShortQuantity = $("#cart-short-quantity");
     let cartShortBill = $("#cart-short-bill");
     let s = CART.sort('qty');
-    let totalBill = 0;
+    
     let i = 0;
     s.forEach(item => {
 
