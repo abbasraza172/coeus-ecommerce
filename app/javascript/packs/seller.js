@@ -11,6 +11,12 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
 
+environment.plugins.prepend('Provide',
+  new webpack.ProvidePlugin({
+    $: 'jquery/src/jquery',
+    jQuery: 'jquery/src/jquery'
+  })
+)
 
 require('jquery')
 require("packs/jquery-1.10.2")

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_09_193041) do
+ActiveRecord::Schema.define(version: 2021_06_09_193504) do
 
   create_table "businesses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 2021_06_09_193041) do
     t.bigint "reviewable_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "order_id"
+    t.index ["order_id"], name: "index_feedbacks_on_order_id"
     t.index ["reviewable_type", "reviewable_id"], name: "index_feedbacks_on_reviewable"
     t.index ["user_id"], name: "index_feedbacks_on_user_id"
   end
