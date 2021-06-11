@@ -9,7 +9,6 @@ class Order < ApplicationRecord
   #it sends an email to order's customer to give feedback
   def send_feedback_email
     if self.status_before_last_save != "delivered" && self.delivered?
-      puts "Hello"
       OrderMailer.with(order: self).delivered_order_email.deliver_later
     end
   end

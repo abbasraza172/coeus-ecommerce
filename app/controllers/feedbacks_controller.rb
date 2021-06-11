@@ -38,7 +38,7 @@ class FeedbacksController < ApplicationController
       @order = Order.find(feedback_params[:order_id])
       path = give_next_feedback_path
     else
-      # render :action => "create"
+      render :new
     end
     return redirect_to path
   end
@@ -51,17 +51,12 @@ class FeedbacksController < ApplicationController
   #for feedback are valid or not. If they are valid, it returns nil.
   #If not valid, it returns index_path.
   def validate_feedback(feedback_params)
-    path = nil
     order = Order.find(feedback_params[:order_id])
     if order && order.user_id == feedback_params[:user_id].to_i
-      if feedback_params[:reviewable_type].camelize == "Product"
-        if !order.products.ids.include?(feedback_params[:reviewable_id].to_i)
-          path = index_path
-        end
-      elsif feedback_params[:reviewable_type].camelize == "Business"
-        if !order.businesses.distinct.ids.include?(feedback_params[:reviewable_id].to_i)
-          path = index_path
-        end
+      reviewable_type = feedback_params[:reviewable_type].camelize
+      reviewable_id = feedback_params[:reviewable_id].to_i
+      if (reviewable_type == "Product" && order.products.ids.include?(reviewable_id)) || (reviewable_type == "Business" && order.businesses.distinct.ids.include?(reviewable_id))
+        path = nil
       else
         path = index_path
       end
