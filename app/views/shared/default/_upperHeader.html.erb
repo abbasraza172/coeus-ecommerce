@@ -2,9 +2,11 @@
   <div class="topNav">
     <div class="container">
       <div class="">
-        <a class="<%= "active" if current_page?(index_path) %>" href="<%=index_path%>"> <span class="fa fa-home"></span> Home</a>
-        <a href="#"><span class="fa fa-user"></span> My Account</a>
-        <a href="#"><span class="fa fa-user-plus"></span> Free Register </a>
+        <a href="<%=index_path%>" class="<%= "active" if current_page?(index_path) %>"> <span class="fa fa-home"></span> Home</a>
+        <a href="<%=new_user_session_path%>"><span class="fa fa-user"></span> <%= current_user ? "My Account" : "Login" %></a>
+        <%unless current_user%>
+          <a href="<%=new_user_registration_path%>"><span class="fa fa-user-plus"></span> Free Register </a>
+        <%end%>
         <a href="#"><span class="fa fa-envelope"></span> Contact us</a>
         <a class="<%= "active" if current_page?(cart_path) %>" href="<%= cart_path%>"><span class="fa fa-shopping-cart"></span>
           <div id="cart-short-quantity" style="display:inline;"></div>

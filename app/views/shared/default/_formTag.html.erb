@@ -1,0 +1,12 @@
+<%= form_with id:"order-form", model: @order, url: orders_path do |form| %>
+  <%= form.hidden_field :product_details %>
+  <%= form.hidden_field :total_bill %>
+  <%= form.label :delivery_address, "Delivery Address:", style:"display:inline; font-weight:bold;"%>
+  <%= form.text_field :delivery_address, style:"display:inline;"%>
+  <br>
+  <br>
+  <a href='javascript:history.go(-1);' class="shopBtn btn-large"><span class="fa fa-arrow-left"></span> Continue
+    Shopping </a>
+  <button type="submit" id="submit-btn" class="shopBtn btn-large pull-right">Place Order <span
+							class="fa fa-arrow-right"></span></button>
+<% end %>

@@ -15,7 +15,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if @sub_domain == "buyer"
       resource.role = 2
       resource.save
-      redirect_to index_path
+      redirect_to new_user_session_path
     elsif @sub_domain == "seller"
       resource.role = 1
       resource.save
@@ -25,9 +25,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
       resource.save
       redirect_to new_user_session_path
     else
-      render :file => 'public/404.html', :status => :not_found, :layout => false
+      render :file => "public/404.html", :status => :not_found, :layout => false
     end
-
   end
 
   # GET /resource/edit
