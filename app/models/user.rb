@@ -36,6 +36,8 @@ class User < ApplicationRecord
     User::ACCESS_RIGHTS[self.role].include?(right)
   end
 
+  #Creates business before signing up as a seller
+  #Associates business id with sellers
   def create_business
     business = Business.create(name: self.business_name)
     self.business_id = business.id

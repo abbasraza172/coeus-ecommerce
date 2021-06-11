@@ -19,23 +19,15 @@
                 </a>
                 <a href="#" class="list-group-item">
                     <i class="fa fa-tasks fa-fw"></i><%=Order.where(status: "pending").count%> Pending Orders
-                <%# <span class="pull-right text-muted small"><em><%= distance_of_time_in_words(Order.where(status: "pending").created_at, Time.now, include_seconds: true) %>
-                </span>
                 </a>
                 <a href="#" class="list-group-item">
                     <i class="fa fa-warning fa-fw"></i><%=Order.where(status: "failed").count%> Rejected Orders
-                <%# <span class="pull-right text-muted small"><em><%= distance_of_time_in_words(Order.where(status: "pending").created_at, Time.now, include_seconds: true) %>
-                </span>
                 </a>
                 <a href="#" class="list-group-item">
                     <i class="fa fa-bolt fa-fw"></i><%=Order.where(status: "canceled").count%> Cancelled Orders
-                <%# <span class="pull-right text-muted small"><em><%= distance_of_time_in_words(Order.where(status: "pending").created_at, Time.now, include_seconds: true) %>
-                </span>
                 </a>
                 <a href="#" class="list-group-item">
                     <i class="fa fa-shopping-cart fa-fw"></i><%=Order.where(status: "pending").count%> New Order Placed
-                <%# <span class="pull-right text-muted small"><em><%= distance_of_time_in_words(Order.where(status: "pending").last.created_at, Time.now, include_seconds: true) %>
-                </span>
                 </a>
             </div>
         </div>

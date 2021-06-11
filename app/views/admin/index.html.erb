@@ -1,0 +1,24 @@
+<% if @sub_domain == "admin" %>
+    <div id="page-inner">
+        <!-- /. Seller stats  -->
+        <%= render "shared/stat"%>
+        <!-- /. ROW  -->
+        <div class="row">
+        <div class="col-md-8">
+            <div class="row">
+            <div class="col-md-12">
+                <%= render "shared/review-crr"%> 
+            </div>
+            </div>
+            <!-- /Top selling items  -->
+            <hr />
+            <%= render "shared/order-tb" %>
+            <%# <%= render "shared/selling-prd"%>
+        </div>
+        <!-- /.Notifications bar -->
+        <%= render "shared/notification-bar" %>
+        </div>
+    </div>
+<% else %>
+    <h2>Page not found </h2>
+<%end%>

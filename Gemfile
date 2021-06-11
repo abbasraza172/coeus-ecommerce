@@ -33,7 +33,7 @@ gem "cocoon"
 #devise
 gem 'devise'
 
-
+#jquery and font-awesome
 gem "font-awesome-rails"
 gem 'jquery-rails'
 
@@ -43,8 +43,6 @@ gem "will_paginate"
 #shrine
 gem 'shrine', '~> 3.3'
 gem 'image_processing', '~> 1.12', '>= 1.12.1'
-
-
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -58,7 +56,6 @@ end
 
 #cancancan gem
 gem 'cancancan'
-
 
 group :development do
   gem "better_errors"

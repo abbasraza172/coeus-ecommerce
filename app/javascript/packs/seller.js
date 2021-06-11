@@ -25,11 +25,8 @@ require("packs/dropdownselect")
 require("packs/jquery.metisMenu")
 
 require("packs/custom")
-
-
-// $(document).on("turbolinks:load", function () {
-//      $('#multiSelect').selectpicker();
-// })
+require("packs/dropdownmin")
+require("packs/dropdownjquery")
 
 Rails.start()
 Turbolinks.start()
