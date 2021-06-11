@@ -12,14 +12,9 @@ import "channels"
 
 require('jquery')
 require("@nathanvda/cocoon")
-
-// require("packs/jquery-1.10.2")
 require("packs/bootstrap-seller")
-// require("packs/dropdownjquery")
 require("packs/dropdownselect")
-
 require("packs/jquery.metisMenu")
-
 require("packs/custom")
 require("packs/dropdownmin")
 require("packs/dropdownjquery")
